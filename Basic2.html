@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<script type="text/javascript">
+    function magic_multiply(x,y){
+        if(x.constructor === Array){
+            for(i=0;i<x.length;i++){
+                    x[i] *=y;
+                }
+            return x;
+            }
+        if(y.constructor==String){
+            console.log("Error: can not multilply by string");        
+        }
+        if(x.constructor===String)  {
+            let temp =x;
+            for(i=0; i<y-1; i++)   {
+                x +=temp;
+            } 
+            return x;   
+        }
+        if((x===0)&&(y===0)){
+            return "All inputs 0"
+        }
+        x = x*y;
+        return x;
+
+ }
+
+</script>
+
+            
+            
+</body>
+</html>
