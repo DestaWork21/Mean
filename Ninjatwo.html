@@ -29,8 +29,6 @@
         this.getStrength = function(){return strength;}
     }
 
-
-
     Ninja.prototype.sayName = function(){
         console.log("My ninja name is: "+this.name);
     }
@@ -42,15 +40,22 @@
         this.health += 10;
     }
 
-    Ninja.prototype.punch= function(ninja){
-        if(!ninja.constructor.name == "Ninja"){console.log("Invalid Ninja."); return ninja.health;}
+    Ninja.prototype.punch = function(ninja){
+        
+        if(!ninja.constructor.name === "Ninja"){console.log("Invalid Ninja."); return;}
+        ninja.health-=5;
 
-        ninja.health -= this.strength*5;
+        console.log(ninja.name + " was punched by " + this.name + " and lost 5 health")
 
-        console.log(ninja.name+" was punched by "+this.name+" and lost "+this.getStrength()*5+" health.");
+        return health;
 
     }
 
+
+
+
+
+    
     Ninja.prototype.kick= function(ninja){
 
         if(!ninja.constructor.name == "Ninja"){console.log("Invalid Ninja."); return;}
