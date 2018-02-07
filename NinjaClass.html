@@ -15,8 +15,8 @@
     function Ninja(name){
         this.name = name;
         this.health = 100;
-        let speed = 3;
-        let strength = 3;
+        var speed = 3;
+        var strength = 3;
 
         this.setSpeed = function(speed){
             this.speed = speed;
@@ -37,7 +37,7 @@
 
     Ninja.prototype.showStats = function(){
 
-        console.log("Name: "+this.name+", Health: "+this.health+" , Speed: "+this.getSpeed()+", Strength: "+this.getSpeed());
+        console.log("Name: "+this.name+", Health: "+this.health+" , Speed: "+this.getSpeed()+", Strength: "+this.getStrength());
     }
 
     Ninja.prototype.drinkSake = function(){
@@ -47,7 +47,7 @@
     }
 
 
-    let ninja = new Ninja("Hayabusa");
+    ninja = new Ninja("Hayabusa");
     ninja.sayName();
     ninja.showStats();
     ninja.drinkSake();
