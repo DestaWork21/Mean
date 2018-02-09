@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
 app.use(session({secret: 'ninjaLevel1'}));  // string for encryption
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "./static")));
-app.use(session({secret: "hideme"}));
+// app.use(session({secret: "hideme"}));
 // setting up ejs and our views folder
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'ejs');
@@ -20,7 +20,7 @@ app.get('/', function(req, res) {
     }else{
         req.session.count =0;
     }
-    res.render("index", {count:req.session.count});
+    res.render("index", {count:req.session.id});
 })
 app.get("/counttwo",function(req,res){
     if(req.session.id != null || req.session.id != undefined){
