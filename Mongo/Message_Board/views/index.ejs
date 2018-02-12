@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>A web Page</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+    <h1>The Dojo Message Board</h1>
+    <hr>
+    <div class="container">
+        <form action="/post" method="post">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" name="name" id="name">
+          </div>
+          <div class="form-group">
+            <label for="post">Post:</label>
+            <textarea class="form-control" name="post" id="post"></textarea>
+          </div>
+       
+          <button type="submit" class="btn btn-default col-sm-offset-10">Post Message</button>
+
+        </form>
+
+         <%if(typeof(users) != "undefined"){%>
+            <%for(user in users){%>
+                <%let posts = users[user].posts;%>
+                <div id="posts">
+                    <h3>Name: <%=users[user].name%></h3>
+                    <%for(let i=0;i<posts.length;i++){%>
+                        <h3>Message: <%=posts[i].text%></h3>
+                        <div id="comments">
+                            <%for(user in users){%>
+                                <%let comments = users[user].comments;%>
+                                <%for(let j=0;j<comments.length;j++){%>
+                                    <%if(posts[i].id == comments[j]._post){%>
+                                        <h4>Name: <%=users[user].name%></h4>
+                                        <h4>Comment: <%=comments[j].text%></h4>
+                                        <hr>
+                                    <%}%>
+                                <%}%>
+                            <%}%>
+                        </div>
+
+                        <form action="/comment/<%=posts[i].id%>" method="post">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" name="name" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="post">Comment:</label>
+                                <textarea class="form-control" name="comment" id="post"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-default col-sm-offset-10">Post Comment</button>
+                        </form>
+                    <%}%>
+                    <hr>
+                </div>
+            <%}%>
+        <%}%>
+    </div>
+</body>
+</html>

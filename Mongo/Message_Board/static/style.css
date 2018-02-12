@@ -1,0 +1,22 @@
+
+#post{
+
+    resize: none;
+
+    height: 20vh;
+
+}
+
+
+
+#posts{
+    display: block;
+    padding: 32px;
+}
+
+
+#comments{
+    display: block;
+    padding: 32px;
+    padding-top: 4px;
+}
