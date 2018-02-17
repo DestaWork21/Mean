@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Chipmunk</title>
+</head>
+<body>
+    <%if(typeof(errors) != "undefined"){%>
+        <%for(error in errors){%>
+            <h2><%=errors[error].message%></h2>
+        <%}%>
+    <%}%>
+
+    <%if(typeof(chipmunk) != "undefined"){%>
+        <table>
+            <tr>
+                <th>Name:</th>
+                <th>Age:</th>
+                <th>Peanuts Collected:</th>
+            </tr>
+
+            <tr>
+                <td><%=chipmunk.name%></td>
+                <td><%=chipmunk.age%></td>
+                <td><%=chipmunk.peanuts%></td>
+            </tr>
+        </table>
+    <%}%>
+</body>
+
+</html>

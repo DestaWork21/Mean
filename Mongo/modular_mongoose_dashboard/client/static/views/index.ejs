@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chipmunks!</title>
+</head>
+
+<body>
+    <%if(typeof(chipmunks) != "undefined"){%>
+        <table class="table table-bordered table-striped table-hover">
+            <tr>
+                <th>Name:</th>
+                <th>Age:</th>
+                <th>Peanuts Collected:</th>
+                <th>Actions:</th>
+            </tr>
+
+            <%for(chipmunk in chipmunks){%>
+                <tr>
+                    <td><%=chipmunks[chipmunk].name%></td>
+                    <td><%=chipmunks[chipmunk].age%></td>
+                    <td><%=chipmunks[chipmunk].peanuts%></td>
+                    <td><a href="/chipmunks/<%=chipmunks[chipmunk].id%>">Show</a> <a href="/chipmunks/edit/<%=chipmunks[chipmunk].id%>">Edit</a> <a href="/chipmunks/destroy/<%=chipmunks[chipmunk].id%>">Delete</a></td>
+                </tr>
+            <%}%>
+        </table>
+    <%}%>
+    <a href="/chipmunks/new">Add a chipmunk</a>
+</body>
+</html>

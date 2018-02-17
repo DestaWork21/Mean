@@ -1,0 +1,30 @@
+
+<div class="task-new">
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+    <p>
+      task-new works!
+    </p>
+  </div>
+    
+    
+  
+    <div class="taskList">
+      <button (click)="getTasksFormService()">Get all tasks</button>
+      <p *ngFor="let task of tasks">{{task.title}} - {{task.description}} </p>
+    </div>
+    <form (submit)="onSubmit" class="post">
+      <p>{{newTask | json}}</p>
+      <label>Task Title:
+        <input type="test" name="newTask.title" [(ngModel)]
+         = "newTask.title">
+      </label>
+      <label>Task description:
+        <input type="test" name="newTask.description" [(ngModel)]
+         = "newTask.description">
+      </label>
+      <input type="submit" value="create Task">
+    </form>
+  </div>
